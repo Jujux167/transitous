@@ -1,0 +1,76 @@
+<!--
+SPDX-FileCopyrightText: 2026 Transitous contributors
+SPDX-License-Identifier: CC0-1.0
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Transitous program dependency graph</title>
+  <desc id="desc">Diagram showing how feed definitions flow through fetch scripts and MOTIS to serve routing results.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2f4f4f"/>
+    </marker>
+    <style>
+      .node { fill: #f5f9ff; stroke: #2f4f4f; stroke-width: 2; rx: 8; ry: 8; }
+      .label { font: 14px Arial, sans-serif; fill: #1f2933; text-anchor: middle; }
+      .subtitle { font: 12px Arial, sans-serif; fill: #4b5563; text-anchor: middle; }
+      .arrow { stroke: #2f4f4f; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <!-- Top inputs -->
+  <rect class="node" x="40" y="40" width="240" height="70"/>
+  <text class="label" x="160" y="72">Feed definitions</text>
+  <text class="subtitle" x="160" y="94">feeds/*.json</text>
+
+  <rect class="node" x="370" y="40" width="240" height="70"/>
+  <text class="label" x="490" y="72">Cataloged feeds</text>
+  <text class="subtitle" x="490" y="94">Transitland &amp; Mobility DB</text>
+
+  <rect class="node" x="700" y="40" width="240" height="70"/>
+  <text class="label" x="820" y="72">Realtime &amp; GBFS URLs</text>
+  <text class="subtitle" x="820" y="94">GTFS-RT / GBFS endpoints</text>
+
+  <!-- Fetch stage -->
+  <rect class="node" x="180" y="150" width="260" height="80"/>
+  <text class="label" x="310" y="182">fetch.py</text>
+  <text class="subtitle" x="310" y="204">region_helpers, transitland.py, mobilitydatabase.py</text>
+
+  <!-- Map data -->
+  <rect class="node" x="530" y="150" width="220" height="80"/>
+  <text class="label" x="640" y="182">OSM map extracts</text>
+  <text class="subtitle" x="640" y="204">Background tiles</text>
+
+  <!-- Processed data -->
+  <rect class="node" x="210" y="270" width="240" height="80"/>
+  <text class="label" x="330" y="302">Processed feeds</text>
+  <text class="subtitle" x="330" y="324">Cleaned GTFS archives</text>
+
+  <!-- Config generation -->
+  <rect class="node" x="520" y="270" width="240" height="80"/>
+  <text class="label" x="640" y="302">generate-motis-config.py</text>
+  <text class="subtitle" x="640" y="324">Builds MOTIS config.yml</text>
+
+  <!-- MOTIS -->
+  <rect class="node" x="520" y="390" width="240" height="80"/>
+  <text class="label" x="640" y="422">MOTIS import &amp; server</text>
+  <text class="subtitle" x="640" y="444">Routing engine</text>
+
+  <!-- API -->
+  <rect class="node" x="520" y="500" width="240" height="50"/>
+  <text class="label" x="640" y="530">Routing API &amp; map tiles</text>
+
+  <!-- Clients -->
+  <rect class="node" x="790" y="500" width="160" height="50"/>
+  <text class="label" x="870" y="530">Website / clients</text>
+
+  <!-- Arrows -->
+  <line class="arrow" x1="280" y1="110" x2="280" y2="150"/>
+  <line class="arrow" x1="490" y1="110" x2="360" y2="150"/>
+  <line class="arrow" x1="820" y1="110" x2="710" y2="390"/>
+  <line class="arrow" x1="310" y1="230" x2="330" y2="270"/>
+  <line class="arrow" x1="450" y1="310" x2="520" y2="310"/>
+  <line class="arrow" x1="640" y1="230" x2="640" y2="270"/>
+  <line class="arrow" x1="640" y1="350" x2="640" y2="390"/>
+  <line class="arrow" x1="640" y1="470" x2="640" y2="500"/>
+  <line class="arrow" x1="760" y1="525" x2="790" y2="525"/>
+</svg>

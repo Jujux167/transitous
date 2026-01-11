@@ -401,6 +401,10 @@ The following pipeline runs on a daily basis to import new GTFS feed data.
 This image gives an overview of the steps executed in the data pipeline:
 <img src="pipeline.svg" alt="diagram visualizing the data import pipeline">
 
+## Impact analysis (Program Dependency Graph)
+The following graph highlights how core Transitous components depend on each other, from feed definitions through the processing scripts to the MOTIS routing service and its consumers.
+<img src="impact-analysis.svg" alt="Program dependency graph showing feed definitions flowing through fetch.py, generate-motis-config, MOTIS, and out to clients.">
+
 ## Caches
 
 Due to varying uptime of the feed publishers' servers, feeds that are part of a database like Transitland or the Mobility Database are cached.
@@ -474,5 +478,4 @@ motis server
 ```
 
 Once it's done, the motis web interface should be reachable on [localhost:8080](http://localhost:8080).
-
 
